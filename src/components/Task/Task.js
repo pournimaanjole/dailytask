@@ -8,6 +8,9 @@ const Task = ({id,tittle,removetasklists,obj}) => {
     <span onClick={() => {
         removetasklists(id)
     }}>🗑️</span>
+    <span onClick={() => {
+
+    }}> 🖋️</span>
   </div>
   
   </>

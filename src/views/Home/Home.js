@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Home.css';
 import Task from '../../components/Task/Task';
 // first step
@@ -12,6 +12,7 @@ const Home = () => {
     // first step
     // second step
     const [tittle, settittle] = useState('');
+    const [iseddit, seteddit] = useState(false);
 
     // third step 
     const addtasktolist = () => {
@@ -21,9 +22,11 @@ const Home = () => {
             tittle: tittle
         }
         // console.log(obj);
-
-        settasklist([...tasklist, obj]);
+let newarray = [...tasklist, obj];
+        settasklist(newarray);
         settittle('');
+
+        savetasklisttolocalstorage(newarray);
 
     }
     // third step
@@ -48,11 +51,35 @@ const removetasklists = (id) =>{
     const temerray = tasklist ;
 temerray.splice(index,1);
 settasklist([...temerray]);
+
+savetasklisttolocalstorage(temerray);
 }
 //    now we also delete object using id also 
 
 
 //    fourth step finished
+
+// fifth save tasklist to local storage
+// save to local storage
+const savetasklisttolocalstorage = (tasks) =>{
+    localStorage.setItem('list' , JSON.stringify(tasks))
+
+}
+
+// load to local storage in web page
+
+useEffect(() =>{
+const lists = JSON.parse(localStorage.getItem('list'))
+if( lists && lists.lenght>0) {
+    settasklist(lists);
+}
+
+
+},[])
+
+// sisth steps  update our list
+
+
     return (
 
         <div>
@@ -65,7 +92,12 @@ settasklist([...temerray]);
 
                     }} />
                 </form>
+                <div>
+                   { iseddit?  <button type='button' onClick={addtasktolist} >update list</button>:
                 <button type='button' onClick={addtasktolist} >add to task list</button>
+                }
+                </div>
+               
             </div>
 
 
