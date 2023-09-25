@@ -1,0 +1,27 @@
+.task-container{
+    border: none;
+    border-radius:0.2rem ;
+    height:2.6rem ;
+    width: 70vw;
+    margin: 1rem auto;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    background-color:#473c3c;
+}
+.tittle{
+    font-size: 1.4rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+.icon-div{
+    margin-top: 0.5rem;
+}
+.icon{
+   
+    margin-left: 0.3rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    
+}

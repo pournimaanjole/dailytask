@@ -1,0 +1,44 @@
+.main-contanier{
+    width: 100vw;
+    border: 1px solid black;
+    height: 100vh;
+    background-color: #181414;
+   
+}
+.daily-task-heading{
+    text-align: center;
+    margin: 2rem 1rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+}
+.forms-container{
+    /* border: 1px solid white; */
+    width:70vw ;
+    margin: 0 auto;
+    display: flex;
+    
+
+}
+.sear-term{
+    height: 2.4rem;
+    width: 55rem;
+    border: none;
+    border-radius:0.2rem ;
+    padding-left: 2rem ;
+    font-size: 1.2rem;
+    
+}
+
+
+.btn{
+    height: 2.4rem;
+    margin-left: 1rem;
+    width:9rem ;
+    font-size: 1rem;
+    font-weight:500 ;
+    border-radius: 0.2rem;
+    background-color: rgb(24, 133, 89);
+    border: none;
+    color: white;
+}

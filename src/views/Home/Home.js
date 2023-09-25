@@ -11,6 +11,7 @@ const Home = () => {
 
     // first step
     // second step
+    const [id, setid]= useState()
     const [tittle, settittle] = useState('');
     const [iseddit, seteddit] = useState(false);
 
@@ -78,23 +79,56 @@ if( lists && lists.lenght>0) {
 },[])
 
 // sisth steps  update our list
+ const upadatetaskinlist= (id) =>{
+    seteddit(true);
+    setid(id);
+    let updatevar;
+    tasklist.forEach((task) => {
+if(task.id === id){
+    updatevar = task;
+}
+    })
+    settittle(updatevar.tittle);
+ }
 
+//  
+
+const upadatedelist= () => {
+
+    let indextoupdate;
+    tasklist.forEach((task,i) => {
+if(task.id === id){
+    indextoupdate=i;
+}
+    })
+const temparryaray=tasklist;
+temparryaray[indextoupdate] ={
+    id:id,
+    tittle:tittle
+}
+settasklist([...temparryaray]);
+setid('')
+settittle('');
+}
 
     return (
 
         <div>
-            <h1>daily task list (react)</h1>
-            <div>
+
+            <div className='main-contanier'>
+            <p className='daily-task-heading'>daily task list </p>
+            <div className='forms-container'>
 
                 <form>
                     <input type='text' value={tittle} onChange={(e) => {
                         settittle(e.target.value)
 
-                    }} />
+                    }} placeholder='serch-here' 
+                    className='sear-term' />
                 </form>
                 <div>
-                   { iseddit?  <button type='button' onClick={addtasktolist} >update list</button>:
-                <button type='button' onClick={addtasktolist} >add to task list</button>
+                   { iseddit?  <button type='button' className='btn' onClick={upadatedelist} >update list</button>:
+                <button type='button' className='btn' onClick={addtasktolist} >add to task list</button>
                 }
                 </div>
                
@@ -106,9 +140,12 @@ if( lists && lists.lenght>0) {
                 {
                     tasklist.map((taskdetail, index) => {
                         const { id, tittle } = taskdetail;
-                        return <Task id={id} tittle={tittle} key={index} removetasklists={removetasklists} obj={taskdetail}  />
+                        return <Task id={id} tittle={tittle} key={index} removetasklists={removetasklists} obj={taskdetail} upadatetaskinlist={upadatetaskinlist}  />
                     })
                 }
+            </div> 
+
+
             </div>
         </div>
 
