@@ -25,3 +25,10 @@
     cursor: pointer;
     
 }
+
+@media screen and (max-width:360px){
+    .task-container{
+        width: 83vw;
+       
+    }
+}

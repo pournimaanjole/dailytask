@@ -22,7 +22,7 @@
 }
 .sear-term{
     height: 2.4rem;
-    width: 55rem;
+    width: 60vw;
     border: none;
     border-radius:0.2rem ;
     padding-left: 2rem ;
@@ -41,4 +41,21 @@
     background-color: rgb(24, 133, 89);
     border: none;
     color: white;
+}
+@media screen and (max-width:360px){
+    .forms-container{
+        display: flex;
+        flex-direction: column;
+        
+       
+    }
+
+    .sear-term{
+        width: 70vw;
+        margin-bottom: 1rem;
+    }
+
+    .btn{
+        margin-left: 0;
+    }
 }
