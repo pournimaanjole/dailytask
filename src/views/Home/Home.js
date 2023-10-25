@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css';
 import Task from '../../components/Task/Task';
+import showToast from 'crunchy-toast';
 // first step
 const Home = () => {
     const [tasklist, settasklist] = useState([
-        { id: 1, tittle: 'this is first' }
+        { id: 1, tittle: 'Get up eary in the morning' }
         
 
     ])
@@ -28,6 +29,7 @@ let newarray = [...tasklist, obj];
         settittle('');
 
         savetasklisttolocalstorage(newarray);
+        showToast('Task Added Succesfully', 'success', 3000);
 
     }
     // third step
@@ -54,6 +56,7 @@ temerray.splice(index,1);
 settasklist([...temerray]);
 
 savetasklisttolocalstorage(temerray);
+showToast('Task Remove Success', 'success', 3000);
 }
 //    now we also delete object using id also 
 
@@ -89,6 +92,7 @@ if(task.id === id){
 }
     })
     settittle(updatevar.tittle);
+    
  }
 
 //  
@@ -109,6 +113,9 @@ temparryaray[indextoupdate] ={
 settasklist([...temparryaray]);
 setid('')
 settittle('');
+seteddit(false);
+showToast('Task upadate succesfully', 'success', 3000);
+
 }
 
     return (
